@@ -180,7 +180,7 @@ public class Gestor {
 				
 				if (usertype.equals("Admin")) {
 					do {
-						System.out.println("Previlegios: Admin\nDeseja:\n1. Criar Rota\n2. Apagar Rota\n3. Ver Rotas\n4. Ver Perfis Criados\n5. Log Out");
+						System.out.println("Previlegios: Admin\nDeseja:\n1. Criar Rota\n2. Apagar Rota\n3. Editar Rotas\n4. Ver Rotas\n5. Ver Perfis Criados\n6. Log Out");
 						resposta = sc.nextLine();
 						switch(resposta) {
 						
@@ -206,17 +206,21 @@ public class Gestor {
 							//apagar rota
 							break;
 						case "3":
-							/**
-							 * ver rotas
-							 */
+							System.out.println("Que rota deseja editar? Existem "+ (Rotas.size()-1)+ " rotas disponiveis (0-"+(Rotas.size()-1)+")");
+			              
 							
+							
+							
+							
+							break;
+						case "4":	
 							System.out.println("Rotas existentes: " + (Rotas.size()-1));
 							for(int i= 0; i< Rotas.size(); i++) {
 								System.out.println(Rotas.get(i).toString());
 							}
 							
 							break;
-						case "4":
+						case "5":
 							System.out.println("Existem "+(Users.size()-1)+" contas registadas.\nInformação sobre as contas:");
 							for (int i = 0; i < Users.size(); i++) {
 								System.out.println(Users.get(i).toString());								
@@ -227,7 +231,7 @@ public class Gestor {
 
 						}
 					
-					}while(!(resposta.equals("5")));
+					}while(!(resposta.equals("6")));
 					
 					
 				} else {
