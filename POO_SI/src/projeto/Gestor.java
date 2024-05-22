@@ -99,9 +99,12 @@ public class Gestor {
 			System.out.println("Opção Inválida.");
 		}
 	}
-
-	public boolean Login() {
-		System.out.println("Qual o username?");
+/**
+ * metodo login de user
+ * @return estado do login
+ */
+	public boolean Login() { 
+		System.out.println("Qual o username?"); 
 		String user = sc.next();
 		boolean found = false;
 		int location = 0;
