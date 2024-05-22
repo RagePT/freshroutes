@@ -16,7 +16,7 @@ public class Main {
 		String resposta;
 		do {
 		System.out.println("Deseja:\n1. Criar perfil\n2. Fazer Login\n3. Exit");
-		resposta = sc.next();
+		resposta = sc.nextLine();
 
 			switch(resposta) {
 			
