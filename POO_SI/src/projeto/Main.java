@@ -18,7 +18,6 @@ public class Main {
 		System.out.println("Deseja:\n1. Criar perfil\n2. Fazer Login\n3. Exit");
 		resposta = sc.next();
 
-		
 			switch(resposta) {
 			
 			case "1":
@@ -27,8 +26,10 @@ public class Main {
 				System.out.println(Gestor.getUsers(0).getPass()); // teste
 			break;
 			case "2":
-				Gestor.Login();
-			break;
+				boolean loggedin = Gestor.Login();
+				if (loggedin == true) {
+					System.out.println("ya.");
+				}else break;
 			case "3":
 			break;
 			default:

@@ -100,7 +100,7 @@ public class Gestor {
 		}
 	}
 
-	public void Login() {
+	public boolean Login() {
 		System.out.println("Qual o username?");
 		String user = sc.next();
 		boolean found = false;
@@ -118,8 +118,13 @@ public class Gestor {
 			System.out.println("Qual a palavra passe?");
 			String pass = sc.next();
 			if (pass.equals(Users.get(location).getPass())) {
-				System.out.println("login feito!");
-			}else System.out.println("Password incorreta");
+				System.out.println("Login Efetuado com sucesso.");
+				return true;
+			}else {
+				System.out.println("Password incorreta");
+				return false;
+			}
 		}
+		return false;
 	}
 }
