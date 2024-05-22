@@ -210,7 +210,7 @@ public class Gestor {
 							 * ver rotas
 							 */
 							
-							System.out.println("Rotas existentes");
+							System.out.println("Rotas existentes: " + (Rotas.size()-1));
 							for(int i= 0; i< Rotas.size(); i++) {
 								System.out.println(Rotas.get(i).toString());
 							}
