@@ -60,27 +60,60 @@ public class Gestor {
 	public void CriarPerfil() {
 		System.out.println("Deseja criar perfil de:\n1. Administrador\n2. Utilizador");
 		String resposta = sc.next();
+		String user = "";
+		String usertemp;
+		String pass;
+		int num;
 		switch (resposta) {
 		case "1":
 			System.out.println("Qual é o Username?"); // A IMPLEMENTAR : NAO permitir 2 usernames iguais
-			String user = sc.next();
+			usertemp = sc.next();
+			if (Users.size() == 0) {
+				user = usertemp;
+			} else {
+				for (int i=0;i<Users.size();i++) {
+					if (Users.get(i).getUsername().equals(usertemp)) {
+						System.out.println("Utilizador já existe!");
+					} else {
+						user = usertemp;
+					}
+				}
+					
+			}
+			if (user.equals("")) {
+				break;
+			}
 			System.out.println("Qual é a password?");
-			String pass = sc.next();
+			pass = sc.next();
 			System.out.println("Qual é o numero de telemovel?");
-			int num = sc.nextInt();
-			
+			num = sc.nextInt();
 			Admin adminuser = new Admin(user,pass,num);
 			int size = Users.size();
 			Users.add(size, adminuser);
 			
 		break;
 		case "2":
-			System.out.println("Qual é o Username?");
-			String user1 = sc.next();
+			System.out.println("Qual é o Username?"); // A IMPLEMENTAR : NAO permitir 2 usernames iguais
+			usertemp = sc.next();
+			if (Users.size() == 0) {
+				user = usertemp;
+			} else {
+				for (int i=0;i<Users.size();i++) {
+					if (Users.get(i).getUsername().equals(usertemp)) {
+						System.out.println("Utilizador já existe!");
+					} else {
+						user = usertemp;
+					}
+				}
+					
+			}
+			if (user.equals("")) {
+				break;
+			}
 			System.out.println("Qual é a password?");
-			String pass1 = sc.next();
+			pass = sc.next();
 			System.out.println("Qual é o numero de telemovel?");
-			int num1 = sc.nextInt();
+			num = sc.nextInt();
 			System.out.println("Qual é a sua idade?");
 			int age = sc.nextInt();
 			String def;
@@ -93,7 +126,7 @@ public class Gestor {
 				deficiencia = true;
 			}else deficiencia = false;
 			
-			Admin useruser = new User(user1,pass1,num1,age,deficiencia);
+			Admin useruser = new User(user,pass,num,age,deficiencia);
 			int size1 = Users.size();
 			Users.add(size1, useruser);
 		break;
@@ -105,7 +138,7 @@ public class Gestor {
  * metodo login de user
  * @return estado do login
  */
-	public boolean Login() { 
+	public void Login() { 
 		System.out.println("Qual o username?"); 
 		String user = sc.next();
 		boolean found = false;
@@ -124,12 +157,23 @@ public class Gestor {
 			String pass = sc.next();
 			if (pass.equals(Users.get(location).getPass())) {
 				System.out.println("Login Efetuado com sucesso.");
-				return true;
+				
+				System.out.println("Tipo de user:" + Users.get(location).getClass().getName());
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
 			}else {
 				System.out.println("Password incorreta");
-				return false;
+				
 			}
 		}
-		return false;
 	}
 }

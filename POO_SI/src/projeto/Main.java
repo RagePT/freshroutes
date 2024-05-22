@@ -26,10 +26,8 @@ public class Main {
 				System.out.println(Gestor.getUsers(0).getPass()); // teste
 			break;
 			case "2":
-				boolean loggedin = Gestor.Login();
-				if (loggedin == true) {
-					System.out.println("ya.");
-				}else break;
+				Gestor.Login();
+			break;
 			case "3":
 			break;
 			default:
