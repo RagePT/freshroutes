@@ -166,7 +166,7 @@ public class Gestor {
 				if (usertype.equals("Admin")) {
 					do {
 						System.out.println("Previlegios: Admin\nDeseja:\n1. Criar Rota\n2.Apagar Rota\n3.Ver Rotas\n4.Ver Perfis Criados\n5. Log Out");
-						resposta = sc.next();
+						resposta = sc.nextLine();
 						switch(resposta) {
 						
 						case "1":
