@@ -2,7 +2,7 @@ package primitivos;
 
 public class Testa {
 	/* Como usar este package?
-	 * 1/ Escrever :import package.Testa; antes da respetiva classe 
+	 * 1/ Escrever :import Primitivos.Testa; antes da respetiva classe 
 	 * 2/ Chamar os métodos  pra situação que necessita ex:. Testa.SeShort(String)
 	 * 3/ O método irá returnar um boolean
 	 * Se lhe apetecer poderá adicionar outras classes e métodos, se encontrar
