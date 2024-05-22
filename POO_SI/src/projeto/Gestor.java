@@ -206,7 +206,15 @@ public class Gestor {
 							//apagar rota
 							break;
 						case "3":
-							// ver rotas
+							/**
+							 * ver rotas
+							 */
+							
+							System.out.println("Rotas existentes");
+							for(int i= 0; i< Rotas.size(); i++) {
+								System.out.println(Rotas.get(i).toString());
+							}
+							
 							break;
 						case "4":
 							System.out.println("Existem "+(Users.size()-1)+" contas registadas.\nInformação sobre as contas:");
