@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Main {
 
 	/**
-	 * 
+	 * alalallalalalal
 	 */
 	public static void main(String[] args) {
 		
