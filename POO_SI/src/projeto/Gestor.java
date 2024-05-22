@@ -54,7 +54,9 @@ public class Gestor {
 	public Paragens getParagens(int index) {
 		return Paragens.get(index);
 	}
-
+    /**
+     * Metodo para criar perfil
+     */
 	public void CriarPerfil() {
 		System.out.println("Deseja criar perfil de:\n1. Administrador\n2. Utilizador");
 		String resposta = sc.next();
