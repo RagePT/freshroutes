@@ -5,12 +5,12 @@ import java.util.ArrayList;
 public class RotasAdminA {
 
 	private ArrayList<ParagensRota>Paragens;
-	private int numRota;
+	private String numRota;
 	private String inicio;
 	private String fim;
 	
 	
-	public RotasAdminA(int numRota, String inicio, String fim) {
+	public RotasAdminA(String numRota, String inicio, String fim) {
 		Paragens = new ArrayList<ParagensRota>();
 		this.numRota = numRota;
 		this.inicio = inicio;
@@ -21,7 +21,7 @@ public class RotasAdminA {
 	/**
 	 * @return the numRota
 	 */
-	public int getNumRota() {
+	public String getNumRota() {
 		return numRota;
 	}
 

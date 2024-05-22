@@ -63,6 +63,8 @@ public class Gestor {
 	    String user = "";
 	    String usertemp;
 	    String pass;
+	    String tempnum;
+	    boolean valid;
 	    int num;
 	    switch (resposta) {
 	        case "1":
@@ -80,9 +82,22 @@ public class Gestor {
 	                user = usertemp;
 	                System.out.println("Qual é a password?");
 	                pass = sc.nextLine();
+	                
+	                do {
 	                System.out.println("Qual é o numero de telemovel?");
-	                num = sc.nextInt();
-	                sc.nextLine();
+	                tempnum = sc.nextLine();
+	                valid = true;
+	                for (int i=0; i<tempnum.length(); i++) {
+	                		if (!(Character.isDigit(tempnum.charAt(i)))) {
+	                			System.out.println("O numero de telemóvel deve ser composto por numeros inteiros.");
+	                			valid = false;
+	                			break;
+	                		}
+	                	
+	                	}
+	                }while(!valid);
+	                num = Integer.parseInt(tempnum);
+           
 	                Admin adminuser = new Admin(user, pass, num);
 	                Users.add(adminuser);
 	            }
@@ -102,9 +117,20 @@ public class Gestor {
 	                user = usertemp;
 	                System.out.println("Qual é a password?");
 	                pass = sc.nextLine();
+	                do {
 	                System.out.println("Qual é o numero de telemovel?");
-	                num = sc.nextInt();
-	                sc.nextLine();
+	                tempnum = sc.nextLine();
+	                valid = true;
+	                for (int i=0; i<tempnum.length(); i++) {
+	                		if (!(Character.isDigit(tempnum.charAt(i)))) {
+	                			valid = false;
+	                			System.out.println("O numero de telemóvel deve ser composto por numeros inteiros.");
+	                			break;
+	                		}
+	                	
+	                	}
+	                }while(!valid);
+	                num = Integer.parseInt(tempnum);
 	                System.out.println("Qual é a sua idade?");
 	                int age = sc.nextInt();
 	                sc.nextLine();
@@ -154,12 +180,27 @@ public class Gestor {
 				
 				if (usertype.equals("Admin")) {
 					do {
-						System.out.println("Previlegios: Admin\nDeseja:\n1. Criar Rota\n2.Apagar Rota\n3.Ver Rotas\n4.Ver Perfis Criados\n5. Log Out");
+						System.out.println("Previlegios: Admin\nDeseja:\n1. Criar Rota\n2. Apagar Rota\n3. Ver Rotas\n4. Ver Perfis Criados\n5. Log Out");
 						resposta = sc.nextLine();
 						switch(resposta) {
 						
 						case "1":
-							//criar rota
+							String numrota;
+							do {
+								System.out.println("Por favor indique o num. da Rota");
+								numrota = sc.nextLine();
+								if (numrota.contains(" ")) {
+									System.out.println("O num. de rota não pode conter espaços.");
+								}
+							}while(numrota.contains(" ")) ;
+							System.out.println("Qual é o nome da paragem de inicio da rota?");
+							String inicio = sc.nextLine();
+							System.out.println("Qual e o nome da paragem de fim da rota?");
+							String fim = sc.nextLine();
+														
+							RotasAdminA novarota = new RotasAdminA(numrota,inicio,fim);
+							Rotas.add(novarota);
+							
 							break;
 						case "2":
 							//apagar rota
