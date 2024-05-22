@@ -67,7 +67,7 @@ public class Gestor {
 		switch (resposta) {
 		case "1":
 			System.out.println("Qual é o Username?"); // A IMPLEMENTAR : NAO permitir 2 usernames iguais
-			usertemp = sc.next();
+			usertemp = sc.nextLine();
 			if (Users.size() == 0) {
 				user = usertemp;
 			} else {
@@ -84,7 +84,7 @@ public class Gestor {
 				break;
 			}
 			System.out.println("Qual é a password?");
-			pass = sc.next();
+			pass = sc.nextLine();
 			System.out.println("Qual é o numero de telemovel?");
 			num = sc.nextInt();
 			Admin adminuser = new Admin(user,pass,num);
@@ -94,7 +94,7 @@ public class Gestor {
 		break;
 		case "2":
 			System.out.println("Qual é o Username?"); // A IMPLEMENTAR : NAO permitir 2 usernames iguais
-			usertemp = sc.next();
+			usertemp = sc.nextLine();
 			if (Users.size() == 0) {
 				user = usertemp;
 			} else {
@@ -111,7 +111,7 @@ public class Gestor {
 				break;
 			}
 			System.out.println("Qual é a password?");
-			pass = sc.next();
+			pass = sc.nextLine();
 			System.out.println("Qual é o numero de telemovel?");
 			num = sc.nextInt();
 			System.out.println("Qual é a sua idade?");
@@ -119,7 +119,7 @@ public class Gestor {
 			String def;
 			do {
 				System.out.println("Tem alguma deficiencia?(S/N)");
-				def = sc.next();	
+				def = sc.nextLine();	
 			}while(!def.equals("S") && !def.equals("N"));
 			boolean deficiencia;
 			if (def.equals("S")) {
@@ -140,7 +140,7 @@ public class Gestor {
  */
 	public void Login() { 
 		System.out.println("Qual o username?"); 
-		String user = sc.next();
+		String user = sc.nextLine();
 		boolean found = false;
 		int location = 0;
 		int size = Users.size();
@@ -154,7 +154,7 @@ public class Gestor {
 			System.out.println("Username não encontrado");
 		}else {
 			System.out.println("Qual a palavra passe?");
-			String pass = sc.next();
+			String pass = sc.nextLine();
 			if (pass.equals(Users.get(location).getPass())) {
 				System.out.println("Login Efetuado com sucesso.");
 				
