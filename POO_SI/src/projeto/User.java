@@ -43,5 +43,19 @@ public class User extends Admin{
 	public void addFav(RotasAdminA rota) {
 		rotasFav.add(rota);
 	}
+
+	@Override
+	public String toString() {
+		return "User [idade=" + idade + ", deficiencia=" + deficiencia + ", rotasFav=" + rotasFav + ", Password="
+				+ getPass() + ", Username=" + getUsername() + ", Numero=" + getNumTel() + "]";
+	}
 	
+
+
+
+
+
+
+
+
 }

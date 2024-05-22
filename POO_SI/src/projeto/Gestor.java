@@ -209,7 +209,10 @@ public class Gestor {
 							// ver rotas
 							break;
 						case "4":
-							//ver perfis
+							System.out.println("Existem "+(Users.size()-1)+" contas registadas.\nInformação sobre as contas:");
+							for (int i = 0; i < Users.size(); i++) {
+								System.out.println(Users.get(i).toString());								
+							}
 							break;					
 						default:
 							break;

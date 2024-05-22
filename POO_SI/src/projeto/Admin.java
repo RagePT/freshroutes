@@ -39,6 +39,11 @@ public class Admin {
 	public int getNumTel() {
 		return numTel;
 	}
+
+	@Override
+	public String toString() {
+		return "Admin [username=" + username + ", pass=" + pass + ", numTel=" + numTel + "]";
+	}
 	
 	
 	
