@@ -59,7 +59,7 @@ public class Gestor {
      */
 	public void CriarPerfil() {
 		System.out.println("Deseja criar perfil de:\n1. Administrador\n2. Utilizador");
-		String resposta = sc.next();
+		String resposta = sc.nextLine();
 		String user = "";
 		String usertemp;
 		String pass;
@@ -192,7 +192,7 @@ public class Gestor {
 				} else {
 					do {
 						System.out.println("Previlegios: User\nDeseja:\n1. Pesquisar Rotas \n2. Criar uma Viagem\n3. Log Out");
-						resposta = sc.next();
+						resposta = sc.nextLine();
 						switch(resposta) {
 					
 						case "1":
