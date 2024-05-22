@@ -158,12 +158,54 @@ public class Gestor {
 			if (pass.equals(Users.get(location).getPass())) {
 				System.out.println("Login Efetuado com sucesso.");
 				
-				System.out.println("Tipo de user:" + Users.get(location).getClass().getName());
+				String fullusertype = Users.get(location).getClass().getName();
+				int classStart = fullusertype.indexOf(".") + 1;
+				String usertype = fullusertype.substring(classStart,fullusertype.length());
+				String resposta = "";
 				
-				
-				
-				
-				
+				if (usertype.equals("Admin")) {
+					do {
+						System.out.println("Previlegios: Admin\nDeseja:\n1. Criar Rota\n2.Apagar Rota\n3.Ver Rotas\n4.Ver Perfis Criados\n5. Log Out");
+						resposta = sc.next();
+						switch(resposta) {
+						
+						case "1":
+							//criar rota
+							break;
+						case "2":
+							//apagar rota
+							break;
+						case "3":
+							// ver rotas
+							break;
+						case "4":
+							//ver perfis
+							break;					
+						default:
+							break;
+
+						}
+					
+					}while(!(resposta.equals("5")));
+					
+					
+				} else {
+					do {
+						System.out.println("Previlegios: User\nDeseja:\n1. Pesquisar Rotas \n2. Criar uma Viagem\n3. Log Out");
+						resposta = sc.next();
+						switch(resposta) {
+					
+						case "1":
+							//pesquisar rotas
+							break;
+						case "2":
+							//criar viagem
+							break;
+						default:
+							break;
+					}
+				}while(!(resposta.equals("3")));
+			}
 				
 				
 				
