@@ -10,7 +10,7 @@ public class Main {
 	 * dsakdasodasldall
 	 */
 	public static void main(String[] args) {
-		
+
 		Gestor Gestor = new Gestor(); //inicializa o gestor 2
 		Scanner sc = new Scanner(System.in);
 		String resposta;

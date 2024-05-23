@@ -204,6 +204,7 @@ public class Gestor {
 							break;
 						case "2":
 							//apagar rota
+		
 							break;
 						case "3":
 							System.out.println("Que rota deseja editar? Existem "+ (Rotas.size()-1)+ " rotas disponiveis (0-"+(Rotas.size()-1)+")");

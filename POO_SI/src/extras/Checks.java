@@ -1,6 +1,6 @@
-package primitivos;
+package extras;
 
-public class Testa {
+public class Checks {
 	/* Como usar este package?
 	 * 1/ Escrever :import Primitivos.Testa; antes da respetiva classe 
 	 * 2/ Chamar os métodos  pra situação que necessita ex:. Testa.SeShort(String)
