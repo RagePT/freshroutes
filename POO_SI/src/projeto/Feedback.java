@@ -1,5 +1,5 @@
 package projeto;
-
+import java.util.ArrayList;
 public class Feedback {
 
 	/*Atenção depois digam o que acham mas no método toString por mim ficava só
@@ -89,4 +89,31 @@ public class Feedback {
     	  
       }
       
+      //Atenção o que esta descrito aqui abaixo n pertence a esta classe mas por enqaunto estes metodos vão
+      //ficar aqui guardados por motivos obvios de praticalidade
+      
+      private ArrayList<Feedback>ListaPontualidade = new ArrayList<Feedback>();
+      private ArrayList<Feedback>ListaConforto = new ArrayList<Feedback>();
+      
+      public byte calculaPontualidade() {
+    	  double pontos = 0;
+    	  int i = 0;
+    	  for( i = 0; i<= ListaPontualidade.size(); i++) {
+    		  pontos = pontos + ListaPontualidade.get(i).getPontualiade();
+    	  }
+    	   pontos = pontos/ i;
+    	  byte res = (byte) Math.round(pontos);
+    	  return res;
+      }
+      
+      public byte calculaConforto() {
+    	  double pontos = 0;
+    	  int i = 0;
+    	  for( i = 0; i<= ListaConforto.size(); i++) {
+    		  pontos = pontos + ListaConforto.get(i).getConforto();
+    	  }
+    	   pontos = pontos/ i;
+    	  byte res = (byte) Math.round(pontos);
+    	  return res;
+      }
 }
