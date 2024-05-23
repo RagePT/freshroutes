@@ -1,6 +1,6 @@
 
 
 
-                                            Projeto realizado no ambito da disciplina de POO e SI
+                                  Projeto realizado no ambito da disciplina de POO e SI
 
 
