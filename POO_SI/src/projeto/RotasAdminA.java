@@ -53,5 +53,10 @@ public class RotasAdminA {
 		
 	}
 
+	@Override
+	public String toString() {
+		return "Rota [Paragens=" + Paragens + ", numRota=" + numRota + ", inicio=" + inicio + ", fim=" + fim + "]"; // ns ate q ponto e q dar print a paragnes funfa
+	}
+
 
 }
