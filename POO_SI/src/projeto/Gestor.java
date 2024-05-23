@@ -219,18 +219,8 @@ public class Gestor {
 								String resp = sc.nextLine();
 								switch(resp) {
 									case "1":
-										
-										System.out.println("Qual o nome da rua ? ");
-										String nomerua= sc.nextLine();
-										System.out.println("Qual é o nome da paragem ? ");
-										String nomestops =sc.nextLine();
-										System.out.println("Qual o nome da Zona ? ");
-										String zona=sc.nextLine();
-										
-										Paragens novaparagem = new Paragens(nomerua,nomestops,zona);
-										Paragens.add(novaparagem);
-										
-										
+									
+										// String Nomerua string nomestop string Zona - pede isso, e chama o construtor das paragens, cria o objeto com essas variaveis e adiciona a arraylist (ana)
 									break;
 									case "2":
 										// foda se dps vejo como e q se faz
