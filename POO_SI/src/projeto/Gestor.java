@@ -219,7 +219,18 @@ public class Gestor {
 								String resp = sc.nextLine();
 								switch(resp) {
 									case "1":
-										// pedir as variaveis  - String nomerua  - String NomeStop  - String Zona e inicializar construtor (Ana maria ou joana) 
+										
+										System.out.println("Qual o nome da rua ? ");
+										String nomerua= sc.nextLine();
+										System.out.println("Qual é o nome da paragem ? ");
+										String nomestops =sc.nextLine();
+										System.out.println("Qual o nome da Zona ? ");
+										String zona=sc.nextLine();
+										
+										Paragens novaparagem = new Paragens(nomerua,nomestops,zona);
+										Paragens.add(novaparagem);
+										
+										
 									break;
 									case "2":
 										// foda se dps vejo como e q se faz
