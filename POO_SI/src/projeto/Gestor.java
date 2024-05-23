@@ -205,7 +205,7 @@ public class Gestor {
 							break;
 						case "2":
 							//apagar rota
-		
+							System.out.println("Que rota deseja apagar?");
 							break;
 						case "3":
 							if (Rotas.size() > 0){
