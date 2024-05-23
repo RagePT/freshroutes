@@ -2,21 +2,13 @@ package projeto;
 
 public class Feedback {
 
-	/*Como utilizador quero dar o feedback de forma a melhor o sistema.
-
-	CA:
-
-	O util. tem que escolher o tipo de feedback que vai dar 
-	(pontos positivos/negativos; pontualidade; conforto; limpeza; acessibilidade; sugestões e reclamações).
-	*/
-	
-	/*Como utilizador quero dar o feedback de forma a melhor o sistema.
-
-CA:
-
-O util. tem que escolher o tipo de feedback que vai dar (pontos positivos/negativos; pontualidade; 
-conforto; limpeza; acessibilidade; sugestões e reclamações).
-     */
+	/*Atenção depois digam o que acham mas no método toString por mim ficava só
+	 * pontualidade,conforto,acessibilidade,limpeza, pois são de (1 a 5)
+	 * e dava print desse quadro .
+	 *  e no  gestor guardavamos numa arrayList os comentarios
+	 * noutras list as sugestôesRotas e noutra list o livroReclamçoes pois nromalmente são coisas 
+	 * bem grandes e como tbm alguns deles são uteis pó administrador faz sentido ficar em outro sitio
+	**/
       private byte pontualidade;
       private byte conforto;
       private byte acessibilidade;
@@ -50,6 +42,7 @@ conforto; limpeza; acessibilidade; sugestões e reclamações).
       public void setConforto(byte conforto) {
     	  this.conforto = conforto;
       }
+      
 
       public byte getAcessibilidade() {
     	  return acessibilidade;
@@ -57,6 +50,7 @@ conforto; limpeza; acessibilidade; sugestões e reclamações).
       public void setAcessibilidade(byte acessibilidade) {
     	  this.acessibilidade = acessibilidade;
       }
+      
 
       public byte getLimpeza() {
     	  return limpeza;
@@ -64,6 +58,7 @@ conforto; limpeza; acessibilidade; sugestões e reclamações).
       public void setLimpeza(byte limpeza) {
     	  this.limpeza = limpeza;
       }
+      
 
       public String getComentarios() {
     	  return comentarios;
@@ -71,6 +66,7 @@ conforto; limpeza; acessibilidade; sugestões e reclamações).
       public void setComentarios(String comentarios) {
     	  this.comentarios = comentarios;
       }
+      
 
       public String getSusgestoesRotas() {
     	  return sugestoesRotas;
@@ -80,6 +76,17 @@ conforto; limpeza; acessibilidade; sugestões e reclamações).
       }
       
       
-      
+      public String toString() {   
+    	  
+    	  return ("**************Feedback**************\n "
+    	  		+ "Pontualidade: "+pontualidade+"\r\n"
+    	  		+ "Conforto: "+conforto+"\r\n"
+    	  		+ "Acessibilidade: "+acessibilidade+"\r\n"
+    	  		+ "Limpeza: "+limpeza+"\r\n"
+    	  		+ "Comentarios: "+comentarios+"\r\n"
+    	  		+ "SugestoesRotas: "+sugestoesRotas+"\r\n"
+    	  		+ "LivroReclamacoes: "+livroReclamacoes);
+    	  
+      }
       
 }
