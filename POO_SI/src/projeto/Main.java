@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Main {
 
 	/**
-	 * dsakdasodasldall
+	 * poo si apois
 	 */
 	public static void main(String[] args) {
 
