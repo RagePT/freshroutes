@@ -1,14 +1,7 @@
 package projeto;
 import java.util.ArrayList;
 public class Feedback {
-
-	/*Atenção depois digam o que acham mas no método toString por mim ficava só
-	 * pontualidade,conforto,acessibilidade,limpeza, pois são de (1 a 5)
-	 * e dava print desse quadro .
-	 *  e no  gestor guardavamos numa arrayList os comentarios
-	 * noutras list as sugestôesRotas e noutra list o livroReclamçoes pois nromalmente são coisas 
-	 * bem grandes e como tbm alguns deles são uteis pó administrador faz sentido ficar em outro sitio
-	**/
+	
       private byte pontualidade;
       private byte conforto;
       private byte acessibilidade;
@@ -17,7 +10,8 @@ public class Feedback {
       private String sugestoesRotas;
       private String livroReclamacoes;
       
-      Feedback( byte pontualidade, byte conforto, byte acessibilidade, byte limpeza, String comentarios, String sugestoesRotas, String livroReclamacoes){
+     public Feedback(Byte pontualidade, Byte conforto, Byte acessibilidade, Byte limpeza, 
+     		String comentarios, String sugestoesRotas, String livroReclamacoes){
     	
     	  this.pontualidade = pontualidade;
           this.conforto = conforto;
@@ -27,8 +21,9 @@ public class Feedback {
           this.sugestoesRotas = sugestoesRotas;
           this.livroReclamacoes = livroReclamacoes;
       }
-      
-      public byte getPontualiade() {
+ 
+
+	public byte getPontualiade() {
     	  return pontualidade;
       }
       public void setPontualidade(byte pontualidade) {
@@ -87,33 +82,5 @@ public class Feedback {
     	  		+ "SugestoesRotas: "+sugestoesRotas+"\r\n"
     	  		+ "LivroReclamacoes: "+livroReclamacoes);
     	  
-      }
-      
-      //Atenção o que esta descrito aqui abaixo n pertence a esta classe mas por enqaunto estes metodos vão
-      //ficar aqui guardados por motivos obvios de praticalidade
-      
-      private ArrayList<Feedback>ListaPontualidade = new ArrayList<Feedback>();
-      private ArrayList<Feedback>ListaConforto = new ArrayList<Feedback>();
-      
-      public byte calculaPontualidade() {
-    	  double pontos = 0;
-    	  int i = 0;
-    	  for( i = 0; i<= ListaPontualidade.size(); i++) {
-    		  pontos = pontos + ListaPontualidade.get(i).getPontualiade();
-    	  }
-    	   pontos = pontos/ i;
-    	  byte res = (byte) Math.round(pontos);
-    	  return res;
-      }
-      
-      public byte calculaConforto() {
-    	  double pontos = 0;
-    	  int i = 0;
-    	  for( i = 0; i<= ListaConforto.size(); i++) {
-    		  pontos = pontos + ListaConforto.get(i).getConforto();
-    	  }
-    	   pontos = pontos/ i;
-    	  byte res = (byte) Math.round(pontos);
-    	  return res;
       }
 }

@@ -5,6 +5,7 @@ package projeto;
 
 
 import java.util.ArrayList;
+import extras.Checks;
 import java.util.Scanner;
 /**
  * 
@@ -204,12 +205,24 @@ public class Gestor {
 							break;
 						case "2":
 							//apagar rota
-		
+							System.out.println("Que rota deseja apagar?");
 							break;
 						case "3":
-							System.out.println("Que rota deseja editar? Existem "+ (Rotas.size()-1)+ " rotas disponiveis (0-"+(Rotas.size()-1)+")");
-			              
-							
+							if (Rotas.size() > 0){
+								System.out.println("Que rota deseja editar? Existem "+ Rotas.size()+ " rotas disponiveis (1-"+Rotas.size()+")");
+								String temprotedit;
+								int rotedit = 0;
+								do {
+									temprotedit = sc.nextLine();
+									if (!Checks.SeInteger(temprotedit)) {
+										System.out.println("Por favor escreva um número inteiro");
+									} else {
+										rotedit = (Integer.parseInt(temprotedit)-1);
+									}
+									
+									
+								}while(!(Checks.SeInteger(temprotedit)) || rotedit > Rotas.size() || rotedit < 1);
+							} else System.out.println("Não existem rotas criadas!");
 							
 							
 							
