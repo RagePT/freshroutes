@@ -95,6 +95,16 @@ public class GestorFeedback {
 		System.out.println("A sair do menu Feedback...");
 	}
 	
+	public String FeedbackRota() {
+		
+		byte pontualidade = calculaPontualidade();
+		byte conforto = calculaConforto();
+		byte acessibilidade = calculaAcessibilidade();
+		byte limpeza = calculaLimpeza();
+	    return "______Avaliações da Rota (0 a 5)______\nPontualidade: "+ pontualidade+"\nConforto: "+ conforto+ 
+				"\nAcessibilidade: "+ acessibilidade+"\nLimpeza: "+limpeza;
+		
+	}
 	 public byte calculaPontualidade() {
 	  	  double pontos = 0;
 	  	  int i = 0;
