@@ -5,14 +5,14 @@ package projeto;
 
 import java.util.Scanner;
 public class Main {
-
+	static Scanner sc = new Scanner(System.in);
 	/**
 	 * poo si apois
 	 */
 	public static void main(String[] args) {
 
 		Gestor Gestor = new Gestor(); //inicializa o gestor 2
-		Scanner sc = new Scanner(System.in);
+		
 		String resposta;
 		do {
 		System.out.println("Deseja:\n1. Criar perfil\n2. Fazer Login\n3. Exit");

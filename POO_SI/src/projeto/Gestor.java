@@ -176,11 +176,11 @@ public class Gestor {
 				
 				if (usertype.equals("Admin")) {
 					do {
-						System.out.println("Previlegios: Admin\nDeseja:\n1. Criar Rota\n2. Apagar Rota\n3. Editar Rotas\n4. Ver Rotas\n5. Ver Perfis Criados\n6. Log Out");
+						System.out.println("Previlegios: Admin\nDeseja:\n1. Criar Rota\n2. Apagar Rota\n3. Editar Rotas\n4. Criar Paragem\n5. Ver Rotas\n6. Ver Perfis Criados\n7. Log Out");
 						resposta = sc.nextLine();
 						switch(resposta) {
 						
-						case "1":
+						case "1": // CRIAR ROTAS
 							String numrota;
 							do {
 								System.out.println("Por favor indique o num. da Rota");
@@ -198,11 +198,17 @@ public class Gestor {
 							Rotas.add(novarota);
 							
 							break;
-						case "2":
-							//apagar rota
+						case "2": //apagar rota
+							
 							System.out.println("Que rota deseja apagar?");
 							break;
-						case "3":
+
+
+
+
+
+
+						case "3": // EDITAR ROTAS
 							if (Rotas.size() > 0){
 								System.out.println("Que rota deseja editar? Existem "+ Rotas.size()+ " rotas disponiveis (1-"+Rotas.size()+")");
 								String temprotedit;
@@ -211,14 +217,77 @@ public class Gestor {
 									temprotedit = sc.nextLine();
 									if (!Checks.SeInteger(temprotedit)) {
 										System.out.println("Por favor escreva um número inteiro");
-									} else {
-										rotedit = (Integer.parseInt(temprotedit)-1);
-									}
+									} else rotedit = (Integer.parseInt(temprotedit)-1);
+										
 								}while(!(Checks.SeInteger(temprotedit)) || rotedit > Rotas.size() || rotedit < 0);
-								System.out.println("O que deseja editar na rota "+Rotas.get(rotedit).getNumRota()+"?\n1. Adicionar Paragem\n2. Apagar Paragem\n3. Ver Paragens");
-								String resp = sc.nextLine();
-								switch(resp) {
-									case "1":
+								String resp;
+								do {
+									System.out.println("O que deseja editar na rota "+Rotas.get(rotedit).getNumRota()+"?\n1. Adicionar Paragem a rota\n2. Apagar Paragem da rota\n3. Ver Paragens associadas a rota\n4. Voltar atrás");
+									resp = sc.nextLine();
+									switch(resp) {
+										case "1":
+											int tempo = 0;
+											String temptempo;
+											do {
+												System.out.println("Qual o intervalo de tempo que o autocarro demora entre a ultima e a paragem atual?");
+												temptempo = sc.nextLine();
+												if (!Checks.SeInteger(temptempo)) {
+													System.out.println("Por favor escreva um numero inteiro positivo");
+												} else tempo = (Integer.parseInt(temptempo));
+											} while(!(Checks.SeInteger(temptempo)));
+											System.out.println("Qual é a paragem que quer associar a rota? Existem as seguintes paragens:");
+											if (Paragens.size() != 0) {
+												for (int i = 0; i<Paragens.size();i++) {
+													System.out.println(i+". "+Paragens.get(i).toString());
+												}
+												String temprotasel;
+												int rotasel = -1;
+												do {
+													temprotasel= sc.nextLine();
+													if (!Checks.SeInteger(temprotasel) ) {
+														System.out.println("Por favor coloque um numero inteiro, dentro do limite");
+													}else rotasel = Integer.parseInt(temprotasel);
+												} while (!(Checks.SeInteger(temprotasel)) || rotasel < 0 || rotasel > Paragens.size()); 
+			
+												Rotas.get(rotedit).addParagem(tempo, Rotas.get(rotedit), Paragens.get(rotasel));
+												
+
+											} else System.out.println("Não existem paragens registadas!");
+
+
+										break;
+										case "2":
+											
+										
+										
+										
+										
+										
+										break;
+										case "3":
+											if (Rotas.get(rotedit).sizeParagens() != 0) {
+												System.out.println("Existem as seguintes paragens associadas á rota "+ Rotas.get(rotedit).getNumRota()+ ".");
+												for (int i = 0; i<Rotas.get(rotedit).sizeParagens(); i++) {
+													System.out.println(Rotas.get(rotedit).getParagens(i).toString());
+												}
+											} else System.out.println("Não existem paragens associadas a esta rota!");
+										
+										
+										
+										break;
+										default:
+											System.out.println("Resposta inválida.");
+										break;
+									}
+								}while(!resp.equals("4"));
+							} else System.out.println("Não existem rotas criadas!");
+							
+							
+							
+							break;
+
+
+						case "4": // CRIAR PARAGENS
 										System.out.println("Qual o nome da Rua?");
 										String NomeRua = sc.nextLine();
 										System.out.println("Qual o nome da Paragem?");
@@ -228,32 +297,19 @@ public class Gestor {
 										Paragens novaParagem = new Paragens(NomeRua, NomeStop, Zona);
 										Paragens.add(novaParagem);
 										
-										// String Nomerua string nomestop string Zona - pede isso, e chama o construtor das paragens, cria o objeto com essas variaveis e adiciona a arraylist (ana)
-									break;
-									case "2":
-										// foda se dps vejo como e q se faz
-									break;
-									case "3":
-										// ainda n meti tostring
-									break;
-									default:
-									break;
+						break;
+
+
+
+						case "5":	// VER ROTAS
+							if (Rotas.size() != 0) {
+								System.out.println("Rotas existentes: " + (Rotas.size()-1));
+								for(int i= 0; i< Rotas.size(); i++) {
+									System.out.println(i+". "+Rotas.get(i).toString());
 								}
-
-
 							} else System.out.println("Não existem rotas criadas!");
-							
-							
-							
 							break;
-						case "4":	
-							System.out.println("Rotas existentes: " + (Rotas.size()-1));
-							for(int i= 0; i< Rotas.size(); i++) {
-								System.out.println(Rotas.get(i).toString());
-							}
-							
-							break;
-						case "5":
+						case "6": // VER CONTAS
 							System.out.println("Existem "+(Users.size()-1)+" contas registadas.\nInformação sobre as contas:");
 							for (int i = 0; i < Users.size(); i++) {
 								System.out.println(Users.get(i).toString());								
@@ -264,7 +320,7 @@ public class Gestor {
 
 						}
 					
-					}while(!(resposta.equals("6")));
+					}while(!(resposta.equals("7")));
 					
 					
 				} else {
