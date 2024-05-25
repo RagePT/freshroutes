@@ -53,5 +53,28 @@ public class RotasAdminA {
 		
 	}
 
+	@Override
+	public String toString() {
+		return "Rota [Paragens=" + Paragens + ", numRota=" + numRota + ", inicio=" + inicio + ", fim=" + fim + "]"; // ns ate q ponto e q dar print a paragnes funfa
+	}
+
+
+
+										/**	
+										System.out.println("Qual o nome da rua ? ");
+										String nomerua= sc.nextLine();
+										System.out.println("Qual é o nome da paragem ? ");
+										String nomestops =sc.nextLine();
+										System.out.println("Qual o nome da Zona ? ");
+										String zona=sc.nextLine();
+										
+										Paragens novaparagem = new Paragens(nomerua,nomestops,zona);
+										Paragens.add(novaparagem);
+										 */
+
+
+
+
+
 
 }

@@ -87,14 +87,9 @@ public class Gestor {
 	                do {
 	                System.out.println("Qual é o numero de telemovel?");
 	                tempnum = sc.nextLine();
-	                valid = true;
-	                for (int i=0; i<tempnum.length(); i++) {
-	                		if (!(Character.isDigit(tempnum.charAt(i)))) {
-	                			System.out.println("O numero de telemóvel deve ser composto por numeros inteiros.");
-	                			valid = false;
-	                			break;
-	                		}
-	                	
+	                valid = Checks.SeInteger(tempnum);
+						if (!valid) {
+	                		System.out.println("O numero de telemóvel deve ser composto por numeros inteiros.");
 	                	}
 	                }while(!valid);
 	                num = Integer.parseInt(tempnum);
@@ -219,9 +214,33 @@ public class Gestor {
 									} else {
 										rotedit = (Integer.parseInt(temprotedit)-1);
 									}
-									
-									
-								}while(!(Checks.SeInteger(temprotedit)) || rotedit > Rotas.size() || rotedit < 1);
+								}while(!(Checks.SeInteger(temprotedit)) || rotedit > Rotas.size() || rotedit < 0);
+								System.out.println("O que deseja editar na rota "+Rotas.get(rotedit).getNumRota()+"?\n1. Adicionar Paragem\n2. Apagar Paragem\n3. Ver Paragens");
+								String resp = sc.nextLine();
+								switch(resp) {
+									case "1":
+										System.out.println("Qual o nome da Rua?");
+										String NomeRua = sc.nextLine();
+										System.out.println("Qual o nome da Paragem?");
+										String NomeStop = sc.nextLine();
+										System.out.println("Qual o nome da Zona?");
+										String Zona = sc.nextLine();
+										Paragens novaParagem = new Paragens(NomeRua, NomeStop, Zona);
+										Paragens.add(novaParagem);
+										
+										// String Nomerua string nomestop string Zona - pede isso, e chama o construtor das paragens, cria o objeto com essas variaveis e adiciona a arraylist (ana)
+									break;
+									case "2":
+										// foda se dps vejo como e q se faz
+									break;
+									case "3":
+										// ainda n meti tostring
+									break;
+									default:
+									break;
+								}
+
+
 							} else System.out.println("Não existem rotas criadas!");
 							
 							

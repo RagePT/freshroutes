@@ -23,7 +23,7 @@ public class Main {
 			case "1":
 				Gestor.CriarPerfil();
 				System.out.println(Gestor.sizeUsers()); // Teste
-				System.out.println(Gestor.getUsers(0).getPass()); // teste
+				System.out.println(Gestor.getUsers(0).getPass()); // teste - REBENTA se n criares user
 			break;
 			case "2":
 				Gestor.Login();
