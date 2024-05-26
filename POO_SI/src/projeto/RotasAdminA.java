@@ -59,9 +59,13 @@ public class RotasAdminA {
 		Paragens.add(tempoentreparagem);
 	}
 
+	public void delParagem(int index) {
+		Paragens.remove(index);
+	}
+
 	@Override
 	public String toString() {
-		return "Rota [Tempo entre paragens=" + Paragens + ", numRota=" + numRota + ", inicio=" + inicio + ", fim=" + fim + "]"; // ns ate q ponto e q dar print a paragnes funfa
+		return "Rota [Paragens associadas=" + Paragens + ", numRota=" + numRota + ", inicio=" + inicio + ", fim=" + fim + "]"; // ns ate q ponto e q dar print a paragnes funfa
 	}
 
 }

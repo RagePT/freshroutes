@@ -12,4 +12,15 @@ public class ParagensRota {
 		this.refParagem = refParagem;
 	}
 
+	@Override
+	public String toString() {
+		return "ParagensRota [Tempo entre paragens=" + tempEntreParagens + ", Rota associada=" + refRota.getNumRota() + ", Paragem associada="
+				+ refParagem.getNomeStop() + "]";
+	}
+
+
+
+
+	
+
 }
