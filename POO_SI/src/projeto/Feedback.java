@@ -1,11 +1,11 @@
 package projeto;
-import java.util.ArrayList;
+
 public class Feedback {
 	
-      private byte pontualidade;
-      private byte conforto;
-      private byte acessibilidade;
-      private byte limpeza;
+      private Byte pontualidade;
+      private Byte conforto;
+      private Byte acessibilidade;
+      private Byte limpeza;
       private String comentarios;
       private String sugestoesRotas;
       private String livroReclamacoes;
@@ -23,7 +23,7 @@ public class Feedback {
       }
  
 
-	public byte getPontualiade() {
+	public Byte getPontualiade() {
     	  return pontualidade;
       }
       public void setPontualidade(byte pontualidade) {
@@ -31,7 +31,7 @@ public class Feedback {
       }
       
 
-      public byte getConforto() {
+      public Byte getConforto() {
     	  return conforto;
       }
       public void setConforto(byte conforto) {
@@ -39,7 +39,7 @@ public class Feedback {
       }
       
 
-      public byte getAcessibilidade() {
+      public Byte getAcessibilidade() {
     	  return acessibilidade;
       }
       public void setAcessibilidade(byte acessibilidade) {
@@ -47,7 +47,7 @@ public class Feedback {
       }
       
 
-      public byte getLimpeza() {
+      public Byte getLimpeza() {
     	  return limpeza;
       }
       public void setLimpeza(byte limpeza) {
