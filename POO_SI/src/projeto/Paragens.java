@@ -49,5 +49,10 @@ public class Paragens {
 		
 	}
 
+	@Override
+	public String toString() {
+		return "Paragem [NomeRua=" + NomeRua + ", NomeStop=" + NomeStop + ", Zona=" + Zona + "]";
+	}
+	
 	
 }

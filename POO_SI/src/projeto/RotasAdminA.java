@@ -1,6 +1,6 @@
 package projeto;
 
-
+import java.util.Scanner;
 import java.util.ArrayList;
 public class RotasAdminA {
 
@@ -8,7 +8,7 @@ public class RotasAdminA {
 	private String numRota;
 	private String inicio;
 	private String fim;
-	
+	Scanner sc = new Scanner(System.in);
 	
 	public RotasAdminA(String numRota, String inicio, String fim) {
 		Paragens = new ArrayList<ParagensRota>();
@@ -53,28 +53,19 @@ public class RotasAdminA {
 		
 	}
 
-	@Override
-	public String toString() {
-		return "Rota [Paragens=" + Paragens + ", numRota=" + numRota + ", inicio=" + inicio + ", fim=" + fim + "]"; // ns ate q ponto e q dar print a paragnes funfa
+	public void addParagem(int tempo, RotasAdminA rota, Paragens paragem) {
+
+		ParagensRota tempoentreparagem = new ParagensRota(tempo, rota, paragem);
+		Paragens.add(tempoentreparagem);
 	}
 
+	public void delParagem(int index) {
+		Paragens.remove(index);
+	}
 
-
-										/**	
-										System.out.println("Qual o nome da rua ? ");
-										String nomerua= sc.nextLine();
-										System.out.println("Qual é o nome da paragem ? ");
-										String nomestops =sc.nextLine();
-										System.out.println("Qual o nome da Zona ? ");
-										String zona=sc.nextLine();
-										
-										Paragens novaparagem = new Paragens(nomerua,nomestops,zona);
-										Paragens.add(novaparagem);
-										 */
-
-
-
-
-
+	@Override
+	public String toString() {
+		return "Rota [Paragens associadas=" + Paragens + ", numRota=" + numRota + ", inicio=" + inicio + ", fim=" + fim + "]"; // ns ate q ponto e q dar print a paragnes funfa
+	}
 
 }
