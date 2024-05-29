@@ -1,5 +1,4 @@
 package projeto;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -36,32 +35,66 @@ public class GestorFeedback {
 				
 				
 				do {
-					System.out.println("______________Opções do menu______________\n1/ Pontualidade \n2/ Conforto \n3/ Acessibilidade "
-					+ "\n4/ Limpeza \n5/ Comentários \n6/ Sugerir Rotas \n7/ Livro de Reclamações \n0/ Enviar Feedback ");
-				    menu = input.nextByte();
-				   
+					do {
+						System.out.println("______________Opções do menu______________\n1/ Pontualidade \n2/ Conforto \n3/ Acessibilidade "
+						+ "\n4/ Limpeza \n5/ Comentários \n6/ Sugerir Rotas \n7/ Livro de Reclamações \n0/ Enviar Feedback ");
+					    valida = input.nextLine();
+					}while(valida.length()!=1  && valida.equals("0") && valida.equals("1") && valida.equals("2") && valida.equals("3") && valida.equals("4") && valida.equals("5") && valida.equals("6"));
+				    
+					Integer converte = Integer.parseInt(valida);
+				    menu = converte.byteValue();
+				    String temp;
+				    boolean validada;
 				    switch(menu) {
 				    case 0:
 				    	System.out.println("A enviar o feedback...");
 				    	break;
 				    case 1:
 				    	System.out.println("Como avalia a pontualidade? (0 a 5)");
-				    	pontualidade = input.nextByte();
+				    	temp = input.nextLine();
+				    	validada =validar(temp);
+				    	while(!validada ) {
+				    		System.out.println("Como avalia a pontualidade? (0 a 5)");
+					    	temp = input.nextLine();
+					    	validada =validar(temp);
+				    	}
+				    	pontualidade = Byte.valueOf(temp);
 				    	break;
 				    	
 				    case 2:
 				    	System.out.println("Como avalia o conforto? (0 a 5)");
-				    	conforto = input.nextByte();
+				    	temp = input.nextLine();
+				    	validada =validar(temp);
+				    	while(!validada ) {
+				    		System.out.println("Como avalia o conforto? (0 a 5)");
+					    	temp = input.nextLine();
+					    	validada =validar(temp);
+				    	}
+				    	conforto = Byte.valueOf(temp);
 				    	break;
 				    	
 				    case 3:
 				    	System.out.println("Como avalia a acessibilidade? (0 a 5)");
-				    	acessibilidade= input.nextByte();
+				    	temp = input.nextLine();
+				    	validada =validar(temp);
+				    	while(!validada ) {
+				    		System.out.println("Como avalia a acessibilidade? (0 a 5)");
+					    	temp = input.nextLine();
+					    	validada =validar(temp);
+				    	}
+				    	acessibilidade = Byte.valueOf(temp);
 				    	break;
 				    	
 				    case 4:
 				    	System.out.println("Como avalia a nossa limpeza (0 a 5)");
-				    	limpeza = input.nextByte();
+				    	temp = input.nextLine();
+				    	validada =validar(temp);
+				    	while(!validada ) {
+				    		System.out.println("Como avalia a nossa limpeza (0 a 5)");
+					    	temp = input.nextLine();
+					    	validada =validar(temp);
+				    	}
+				    	limpeza = Byte.valueOf(temp);
 				    	break;
 				    case 5:
 				    	System.out.println("Deixe aqui o seu comentário comentários ");
@@ -140,5 +173,13 @@ public class GestorFeedback {
 	  	   pontos = pontos/ i;
 	  	  byte res = (byte) Math.round(pontos);
 	  	  return res;
+	    }
+	    
+	    public boolean validar(String variavel) {
+	    	if(variavel.equals("0") && variavel.equals("1") && variavel.equals("2") && variavel.equals("3") && variavel.equals("4") && variavel.equals("5")) {
+	    		return false;
+	    	}else {
+	    		return true;
+	    	}
 	    }
 }
