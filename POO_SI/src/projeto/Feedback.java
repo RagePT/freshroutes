@@ -9,9 +9,11 @@ public class Feedback {
       private String comentarios;
       private String sugestoesRotas;
       private String livroReclamacoes;
+      private RotasAdminA rotaAssociada;
+      private User userAssociado;
       
      public Feedback(Byte pontualidade, Byte conforto, Byte acessibilidade, Byte limpeza, 
-     		String comentarios, String sugestoesRotas, String livroReclamacoes){
+     		String comentarios, String sugestoesRotas, String livroReclamacoes, RotasAdminA rotaAssociada, User userAssociado){
     	
     	  this.pontualidade = pontualidade;
           this.conforto = conforto;
@@ -20,6 +22,9 @@ public class Feedback {
           this.comentarios = comentarios;
           this.sugestoesRotas = sugestoesRotas;
           this.livroReclamacoes = livroReclamacoes;
+          this.userAssociado = userAssociado;
+          this.rotaAssociada = rotaAssociada;
+          
       }
  
 
@@ -69,9 +74,18 @@ public class Feedback {
       public void setSugestoesRotas(String sugestoesRotas) {
     	  this.sugestoesRotas = sugestoesRotas;
       }
-      
-      
-      public String toString() {   
+           
+      public RotasAdminA getRotaAssociada() {
+		return rotaAssociada;
+      }
+
+
+      public User getUserAssociado() {
+    	  return userAssociado;
+      }
+
+
+	public String toString() {   
     	  
     	  return ("**************Feedback**************\n "
     	  		+ "Pontualidade: "+pontualidade+"\r\n"
