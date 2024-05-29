@@ -12,6 +12,7 @@ public class GestorFeedback {
 	public void insereFeedback() {
 		String valida;
 		byte menu = 0;
+		boolean validada;
 		
 		do {
 			
@@ -39,12 +40,11 @@ public class GestorFeedback {
 						System.out.println("______________Opções do menu______________\n1/ Pontualidade \n2/ Conforto \n3/ Acessibilidade "
 						+ "\n4/ Limpeza \n5/ Comentários \n6/ Sugerir Rotas \n7/ Livro de Reclamações \n0/ Enviar Feedback ");
 					    valida = input.nextLine();
-					}while(valida.length()!=1  && valida.equals("0") && valida.equals("1") && valida.equals("2") && valida.equals("3") && valida.equals("4") && valida.equals("5") && valida.equals("6"));
-				    
+					    validada = validar(valida);
+					}while(!validada);
 					Integer converte = Integer.parseInt(valida);
 				    menu = converte.byteValue();
 				    String temp;
-				    boolean validada;
 				    switch(menu) {
 				    case 0:
 				    	System.out.println("A enviar o feedback...");
