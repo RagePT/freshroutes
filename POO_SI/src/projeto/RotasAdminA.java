@@ -65,6 +65,15 @@ public class RotasAdminA {
 		Paragens.remove(index);
 	}
 
+
+	public void addFeedback(Feedback feed) {
+		feedback.add(feed);
+	}
+
+	public Feedback getFeedback(int index) {
+		return feedback.get(index);
+	}
+
 	@Override
 	public String toString() {
 		return "Rota [Paragens associadas=" + Paragens + ", numRota=" + numRota + ", inicio=" + inicio + ", fim=" + fim + "]"; // ns ate q ponto e q dar print a paragnes funfa

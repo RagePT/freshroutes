@@ -12,7 +12,7 @@ import java.util.Scanner;
  */
 public class Gestor {
 	
-	GestorFeedback feedback;
+	GestorFeedback feedback = new GestorFeedback();
 	Scanner sc = new Scanner(System.in);
 	private ArrayList<Admin>Users;
 	private ArrayList<RotasAdminA>Rotas;
@@ -131,8 +131,8 @@ public class Gestor {
 	                do {
 	                    System.out.println("Tem alguma deficiencia?(S/N)");
 	                    def = sc.nextLine();
-	                } while (!def.equals("S") && !def.equals("N"));
-	                boolean deficiencia = def.equals("S");
+	                } while (!def.equalsIgnoreCase("S") && !def.equalsIgnoreCase("N"));
+	                boolean deficiencia = def.equalsIgnoreCase("S");
 	                Admin useruser = new User(user, pass, num, age, deficiencia);
 	                Users.add(useruser);
 	            }
@@ -329,6 +329,7 @@ public class Gestor {
 							if (Rotas.size() != 0) {
 								System.out.println("Rotas existentes: " + (Rotas.size()));
 								for(int i= 0; i< Rotas.size(); i++) {
+									System.out.println(Rotas.get(i).toString());
 								}
 							} else System.out.println("Não existem rotas criadas!");
 							break;
@@ -339,7 +340,9 @@ public class Gestor {
 								System.out.println(Users.get(i).toString());								
 							}
 							break;		
-
+						
+						case "7": // LOGOUT
+							break;
 						default:
 							System.out.println("Opção inválida");
 						break;
@@ -351,7 +354,7 @@ public class Gestor {
 					
 				} else { //UI User
 					do {
-						System.out.println("Previlegios: User\nDeseja:\n1. Pesquisar Rotas \n2. Criar uma Viagem\n3. Dar Feedback\n4. Log Out");
+						System.out.println("Previlegios: User\nDeseja:\n1. Pesquisar Rotas \n2. Criar uma Viagem\n3. Dar Feedback\n4. Ver Feedback enviado\n5. Log Out");
 						resposta = sc.nextLine();
 						switch(resposta) {
 					
@@ -363,73 +366,60 @@ public class Gestor {
 							break;
 						case "3": // ADICIONAR FEEDBACK
 
-						
-							
 							if(!(Paragens.size() == 0) || !(Rotas.size() == 0)) {
 									int opii = 0;
 								do {
 									System.out.println("Quer dar feedback a uma:\n1. Paragem\n2. Rota\n3. Voltar");
 									String opxao = sc.nextLine();
+									int ipcao = 0;
 									if (!Checks.SeInteger(opxao)){
 										System.out.println("Insira um numero inteiro.");
 									} else {
-										opii = Integer.parseInt(resposta);
+										opii = Integer.parseInt(opxao);
 										switch (opii) {
 											case 1:
+												ipcao = 0;
 												if(Paragens.size() != 0) {
+												do {
 												System.out.println("Qual é a paragem que quer associar o seu feedback");
 												for (int i = 0;i<Paragens.size();i++){
-													System.out.println(Paragens.get(i).toString());
+													System.out.println(i + ". "+ Paragens.get(i).toString());
 												}
-												int ipcao = 0;
-												do {
+												
 													String zopcao = sc.nextLine();
 													if (!Checks.SeInteger(zopcao)) {
 														System.out.println("Insira um numero inteiro dentro do limite");
 													}else ipcao = Integer.parseInt(zopcao);
 												} while (ipcao < 0 && ipcao > Paragens.size());
-												//Paragens.get(ipcao)
 
-												Rotas.get(ipcao).addFfeedback.insereFeedback();
+												Feedback tempfeed = feedback.insereFeedback();
 
-
-
-
-
-
-
-
-
-
-
-
-
+												Paragens.get(ipcao).addFeedback(tempfeed);
+												Users.get(location).addFeedback(tempfeed);
 
 											} else System.out.println("Não existem paragens criadas!");
 
 											break;
 											case 2:
-												
+												ipcao = 0;
 												if(Rotas.size() != 0) {
+												do {
 												System.out.println("Qual é a rota que quer associar o seu feedback");
 												for (int i = 0;i<Rotas.size();i++){
-													System.out.println(Rotas.get(i).toString());
+													System.out.println(i + ". "+ Rotas.get(i).toString());
 												}
-												int ipcao = 0;
-												do {
+												
+												
 													String zopcao = sc.nextLine();
 													if (!Checks.SeInteger(zopcao)) {
 														System.out.println("Insira um numero inteiro dentro do limite");
 													}else ipcao = Integer.parseInt(zopcao);
 												} while (ipcao < 0 && ipcao > Rotas.size());
 
+												Feedback tempfeed = feedback.insereFeedback();
 
-
-
-
-
-
-
+												Rotas.get(ipcao).addFeedback(tempfeed);
+												Users.get(location).addFeedback(tempfeed);
 
 												} else System.out.println("Não existem Rotas criadas!");
 											break;
@@ -437,17 +427,34 @@ public class Gestor {
 											break;
 										}
 									}
-								}while(!(opii == 3));	
 
+								}while(opii != 3);	
 
 							} else System.out.println("Não existe nada para dar feedback");
 							
 
+
+
+
+
 						break;
+						
+						case "4": //VER FEEDBACK - COPILOT
+
+							if (Users.get(location).sizeFeedback() != 0) {
+								System.out.println("Feedbacks enviados:");
+								for (int i = 0; i<Users.get(location).sizeFeedback(); i++) {
+									System.out.println(Users.get(location).getFeedback(i).toString());
+								}
+							} else System.out.println("Não existem feedbacks enviados!");
+
+
+						break;
+
 						default:
 						break;
 					}
-				}while(!(resposta.equals("4")));
+				}while(!(resposta.equals("5")));
 			}
 				
 				

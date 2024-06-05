@@ -47,6 +47,21 @@ public class User extends Admin{
 	}
 
 	@Override
+	public void addFeedback(Feedback feed) {
+		feedback.add(feed);
+	}
+	@Override
+	public Feedback getFeedback(int index) {
+		return feedback.get(index);
+	}
+
+	@Override
+	public int sizeFeedback() {
+		return feedback.size();
+	}
+
+
+	@Override
 	public String toString() {
 		return "User [idade=" + idade + ", deficiencia=" + deficiencia + ", rotasFav=" + rotasFav + ", Password="
 				+ getPass() + ", Username=" + getUsername() + ", Numero=" + getNumTel() + "]";

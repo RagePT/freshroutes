@@ -82,9 +82,8 @@ public class Feedback {
     	  return userAssociado;
       }
 
-
+      @Override
 	public String toString() {   
-    	  
     	  return ("**************Feedback**************\n "
     	  		+ "Pontualidade: "+pontualidade+"\r\n"
     	  		+ "Conforto: "+conforto+"\r\n"
@@ -92,7 +91,8 @@ public class Feedback {
     	  		+ "Limpeza: "+limpeza+"\r\n"
     	  		+ "Comentarios: "+comentarios+"\r\n"
     	  		+ "SugestoesRotas: "+sugestoesRotas+"\r\n"
-    	  		+ "LivroReclamacoes: "+livroReclamacoes);
+    	  		+ "LivroReclamacoes: "+livroReclamacoes+"\r\n" 
+                  + "************************************" );
     	  
       }
 }

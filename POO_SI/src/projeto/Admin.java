@@ -40,9 +40,26 @@ public class Admin {
 		return numTel;
 	}
 
+
+	public void addFeedback(Feedback feed) {
+		// Não faz nada.	
+	}
+
+
+
 	@Override
 	public String toString() {
 		return "Admin [username=" + username + ", pass=" + pass + ", numTel=" + numTel + "]";
+	}
+
+    public int sizeFeedback() {
+        // TODO Auto-generated method stub
+		return 0;
+    }
+
+	public Feedback getFeedback(int index) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	
