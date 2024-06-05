@@ -13,7 +13,7 @@ public class Feedback {
       private User userAssociado;
       
      public Feedback(Byte pontualidade, Byte conforto, Byte acessibilidade, Byte limpeza, 
-     		String comentarios, String sugestoesRotas, String livroReclamacoes, RotasAdminA rotaAssociada, User userAssociado){
+     		String comentarios, String sugestoesRotas, String livroReclamacoes){
     	
     	  this.pontualidade = pontualidade;
           this.conforto = conforto;
@@ -22,8 +22,6 @@ public class Feedback {
           this.comentarios = comentarios;
           this.sugestoesRotas = sugestoesRotas;
           this.livroReclamacoes = livroReclamacoes;
-          this.userAssociado = userAssociado;
-          this.rotaAssociada = rotaAssociada;
           
       }
  

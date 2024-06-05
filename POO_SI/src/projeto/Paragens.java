@@ -51,7 +51,17 @@ public class Paragens {
 		
 	}
 
-	@Override
+	public void addFeedback(Feedback feed) {
+		feedback.add(feed);
+	}
+
+	
+
+	public Feedback getFeedback(int index) {
+        return feedback.get(index);
+    }
+
+    @Override
 	public String toString() {
 		return "Paragem [NomeRua=" + NomeRua + ", NomeStop=" + NomeStop + ", Zona=" + Zona + "]";
 	}

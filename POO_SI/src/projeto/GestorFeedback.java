@@ -9,11 +9,12 @@ public class GestorFeedback {
 /*
  * Depois temos de realocar isto mas por um motivo de organização pos aqui por enquanto
 */
-	public void insereFeedback() {
+	public Feedback insereFeedback() {
 		String valida;
 		byte menu = 0;
 		boolean validada;
-		
+		Feedback tempfeedback = null;
+
 		do {
 			
 			System.out.println("****************Feedback****************");
@@ -115,10 +116,14 @@ public class GestorFeedback {
 				Feedback feedback = new Feedback(pontualidade, conforto, acessibilidade, limpeza, comentarios, sugestoesRotas, livroReclamacoes);
 				listaFeedback.add(feedback);
 				System.out.println("Obrigado pelo seu Feedback :]");
+				tempfeedback = feedback;
 				
 			}
 		}while(menu != 0);
-	}				
+		
+		return tempfeedback;
+	}
+
 			
 	
 	public String FeedbackRota() {

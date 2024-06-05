@@ -12,6 +12,7 @@ import java.util.Scanner;
  */
 public class Gestor {
 	
+	GestorFeedback feedback;
 	Scanner sc = new Scanner(System.in);
 	private ArrayList<Admin>Users;
 	private ArrayList<RotasAdminA>Rotas;
@@ -361,6 +362,9 @@ public class Gestor {
 							//criar viagem
 							break;
 						case "3": // ADICIONAR FEEDBACK
+
+						
+							
 							if(!(Paragens.size() == 0) || !(Rotas.size() == 0)) {
 									int opii = 0;
 								do {
@@ -386,6 +390,7 @@ public class Gestor {
 												} while (ipcao < 0 && ipcao > Paragens.size());
 												//Paragens.get(ipcao)
 
+												Rotas.get(ipcao).addFfeedback.insereFeedback();
 
 
 
@@ -400,14 +405,33 @@ public class Gestor {
 
 
 
-												
 											} else System.out.println("Não existem paragens criadas!");
 
 											break;
 											case 2:
 												
-												System.out.println("Qual é a Rota que quer associar ao seu feedback");
+												if(Rotas.size() != 0) {
+												System.out.println("Qual é a rota que quer associar o seu feedback");
+												for (int i = 0;i<Rotas.size();i++){
+													System.out.println(Rotas.get(i).toString());
+												}
+												int ipcao = 0;
+												do {
+													String zopcao = sc.nextLine();
+													if (!Checks.SeInteger(zopcao)) {
+														System.out.println("Insira um numero inteiro dentro do limite");
+													}else ipcao = Integer.parseInt(zopcao);
+												} while (ipcao < 0 && ipcao > Rotas.size());
 
+
+
+
+
+
+
+
+
+												} else System.out.println("Não existem Rotas criadas!");
 											break;
 											default:
 											break;
