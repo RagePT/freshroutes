@@ -33,16 +33,17 @@ public class User extends Admin{
 	/**
 	 * @return the rotasFav
 	 */
-	public int sizeRotasFav() {
+	@Override
+	public int sizeFavoritos() {
 		return rotasFav.size();
 	}
-	
-	public RotasAdminA getRotasFav(int index) {
+	@Override
+	public RotasAdminA getFavoritos(int index) {
 		return rotasFav.get(index);
 		
 	}
-	
-	public void addFav(RotasAdminA rota) {
+	@Override
+	public void addFavoritos(RotasAdminA rota) {
 		rotasFav.add(rota);
 	}
 

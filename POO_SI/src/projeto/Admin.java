@@ -61,7 +61,19 @@ public class Admin {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+    public void addFavoritos(RotasAdminA rotasAdminA) {
+        // TODO Auto-generated method stub
+    }
+
+    public int sizeFavoritos() {
+        return 0;
+    }
 	
+	public RotasAdminA getFavoritos(int index) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 }

@@ -356,13 +356,13 @@ public class Gestor {
 					
 				} else { //UI User
 					do {
-						System.out.println("Previlegios: User\nDeseja:\n1. Pesquisar Rotas \n2. Criar uma Viagem\n3. Dar Feedback\n4. Ver Feedback\n5. Log Out");
+						System.out.println("Previlegios: User\nDeseja:\n1. Pesquisar Rotas \n2. Guardar rota nos favoritos\n3. Dar Feedback\n4. Ver Feedback\n5. Ver Rotas Favoritas\n6. Log Out");
 						resposta = sc.nextLine();
 						switch(resposta) {
 					
 						case "1":
 							//pesquisar rotas
-							System.out.println("Qual é o numero da rota?");
+							System.out.println("Qual é o ponto de partida?");
 
 
 
@@ -370,8 +370,28 @@ public class Gestor {
 
 
 							break;
-						case "2":
-							//criar viagem
+						case "2": // GUARDAR ROTA NOS FAVORITOS - COPILOT
+
+							if(Rotas.size() != 0) {
+								System.out.println("Que rota deseja guardar nos favoritos?");
+								for (int i = 0; i<Rotas.size();i++) {
+									System.out.println(i+". "+ Rotas.get(i).toString());
+								}
+								String tempfav; 
+								int rotfav = -1;
+								do {
+									tempfav = sc.nextLine();
+									if (!Checks.SeInteger(tempfav)) {
+										System.out.println("Por favor insira um numero inteiro dentro do limite.");
+									} else rotfav = Integer.parseInt(tempfav);
+								} while (!Checks.SeInteger(tempfav) || rotfav < 0 || rotfav > Rotas.size());
+								Users.get(location).addFavoritos(Rotas.get(rotfav));
+								System.out.println("Rota guardada com sucesso!");
+							} else System.out.println("Não existem rotas criadas!");
+
+
+
+							//guardar rota nos favoritos
 							break;
 						case "3": // ADICIONAR FEEDBACK
 
@@ -459,11 +479,23 @@ public class Gestor {
 								}
 							} else System.out.println("Não existem feedbacks criados!");
 						break;
+						
+						
+						case "5": //Ver Favoritos - COPILOT
+						
+							if(Users.get(location).sizeFavoritos() != 0) {
+								System.out.println("Rotas Favoritas: " + (Users.get(location).sizeFavoritos()));
+								for(int i= 0; i< Users.get(location).sizeFavoritos(); i++) {
+									System.out.println(Users.get(location).getFavoritos(i).toString());
+								}
+							} else System.out.println("Não existem rotas favoritas!");
+
+						break;
 
 						default:
 						break;
 					}
-				}while(!(resposta.equals("5")));
+				}while(!(resposta.equals("6")));
 			}
 				
 				
