@@ -226,19 +226,22 @@ public class Gestor {
 
 						case "3": // EDITAR ROTAS
 							if (Rotas.size() > 0){
-								System.out.println("Que rota deseja editar? Existem "+ Rotas.size()+ " rotas disponiveis (1-"+Rotas.size()+")");
+								System.out.println("Que rota deseja editar? Existem "+ Rotas.size()+ " rotas disponiveis.");
+								for (int i = 0; i<Rotas.size();i++) {
+									System.out.println(i+". "+Rotas.get(i).toString());
+								}
 								String temprotedit;
 								int rotedit = 0;
 								do {
 									temprotedit = sc.nextLine();
 									if (!Checks.SeInteger(temprotedit)) {
 										System.out.println("Por favor escreva um número inteiro");
-									} else rotedit = (Integer.parseInt(temprotedit)-1);
+									} else rotedit = Integer.parseInt(temprotedit);
 										
 								}while(!(Checks.SeInteger(temprotedit)) || rotedit > Rotas.size() || rotedit < 0);
 								String resp;
 								do {
-									System.out.println("O que deseja editar na rota "+Rotas.get(rotedit).getNumRota()+"?\n1. Adicionar Paragem a rota\n2. Apagar Paragem da rota\n3. Ver Paragens associadas a rota\n4. Voltar atrás");
+									System.out.println("O que deseja editar na rota "+Rotas.get(rotedit).getNumRota()+"?\n1. Adicionar Paragem a rota\n2. Apagar Paragem da rota\n3. Ver Paragens associadas a rota\n4. Editar Informação da rota\n5. Voltar atrás");
 									resp = sc.nextLine();
 									switch(resp) {
 										case "1": // Adicionar paragem a rota
@@ -300,15 +303,24 @@ public class Gestor {
 													System.out.println(Rotas.get(rotedit).getParagens(i).toString());
 												}
 											} else System.out.println("Não existem paragens associadas a esta rota!");
-										
-										
-										
+										break;
+										case "4": // Editar informação da rota
+											String temp;
+											System.out.println("Qual é o novo nome da paragem de inicio da rota?");
+											temp = sc.nextLine();
+											Rotas.get(rotedit).setInicio(temp);
+											System.out.println("Qual é o novo nome da paragem de fim da rota?");
+											temp = sc.nextLine();
+											Rotas.get(rotedit).setFim(temp);
+											System.out.println("Informação da rota "+Rotas.get(rotedit).getNumRota()+" editada com sucesso!");
+										break;
+										case "5":
 										break;
 										default:
 											System.out.println("Resposta inválida.");
 										break;
 									}
-								}while(!resp.equals("4"));
+								}while(!resp.equals("5"));
 							} else System.out.println("Não existem rotas criadas!");
 							
 							

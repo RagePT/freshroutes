@@ -27,20 +27,18 @@ public class RotasAdminA {
 		return numRota;
 	}
 
-
 	/**
-	 * @return the inicio
+	 * @param o novo inicio
 	 */
-	public String getInicio() {
-		return inicio;
+	public void setInicio(String novoinicio) {
+		inicio = novoinicio;
 	}
 
-
 	/**
-	 * @return the fim
+	 * @param fim para alterar feIN?????
 	 */
-	public String getFim() {
-		return fim;
+	public void setFim(String novofim) {
+		fim = novofim;
 	}
 	
 	/**
