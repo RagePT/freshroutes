@@ -17,12 +17,14 @@ public class Gestor {
 	private ArrayList<Admin>Users;
 	private ArrayList<RotasAdminA>Rotas;
 	private ArrayList<Paragens>Paragens;
+	private ArrayList<Feedback>feedbacktodos;
 	
 	public Gestor() {
 	
 		Users = new ArrayList<Admin>();
 		Rotas = new ArrayList<RotasAdminA>();
 		Paragens = new ArrayList<Paragens>();
+		feedbacktodos = new ArrayList<Feedback>();
 		
 	}
 	
@@ -354,12 +356,19 @@ public class Gestor {
 					
 				} else { //UI User
 					do {
-						System.out.println("Previlegios: User\nDeseja:\n1. Pesquisar Rotas \n2. Criar uma Viagem\n3. Dar Feedback\n4. Ver Feedback enviado\n5. Log Out");
+						System.out.println("Previlegios: User\nDeseja:\n1. Pesquisar Rotas \n2. Criar uma Viagem\n3. Dar Feedback\n4. Ver Feedback\n5. Log Out");
 						resposta = sc.nextLine();
 						switch(resposta) {
 					
 						case "1":
 							//pesquisar rotas
+							System.out.println("Qual é o numero da rota?");
+
+
+
+
+
+
 							break;
 						case "2":
 							//criar viagem
@@ -396,6 +405,7 @@ public class Gestor {
 
 												Paragens.get(ipcao).addFeedback(tempfeed);
 												Users.get(location).addFeedback(tempfeed);
+												feedbacktodos.add(tempfeed);
 
 											} else System.out.println("Não existem paragens criadas!");
 
@@ -420,6 +430,7 @@ public class Gestor {
 
 												Rotas.get(ipcao).addFeedback(tempfeed);
 												Users.get(location).addFeedback(tempfeed);
+												feedbacktodos.add(tempfeed);
 
 												} else System.out.println("Não existem Rotas criadas!");
 											break;
@@ -439,16 +450,14 @@ public class Gestor {
 
 						break;
 						
-						case "4": //VER FEEDBACK - COPILOT
+						case "4": //VER FEEDBACK DE TODOS - COPILOT
 
-							if (Users.get(location).sizeFeedback() != 0) {
-								System.out.println("Feedbacks enviados:");
-								for (int i = 0; i<Users.get(location).sizeFeedback(); i++) {
-									System.out.println(Users.get(location).getFeedback(i).toString());
+							if(feedbacktodos.size() != 0) {
+								System.out.println("Feedbacks existentes: " + (feedbacktodos.size()) + ":");
+								for(int i= 0; i< feedbacktodos.size(); i++) {
+									System.out.println(feedbacktodos.get(i).toString());
 								}
-							} else System.out.println("Não existem feedbacks enviados!");
-
-
+							} else System.out.println("Não existem feedbacks criados!");
 						break;
 
 						default:
