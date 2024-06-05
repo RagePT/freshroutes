@@ -375,12 +375,6 @@ public class Gestor {
 						case "1":
 							//pesquisar rotas
 							System.out.println("Qual é o ponto de partida?");
-
-
-
-
-
-
 							break;
 						case "2": // GUARDAR ROTA NOS FAVORITOS - COPILOT
 
