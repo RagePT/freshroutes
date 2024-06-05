@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 public class RotasAdminA {
 
-	private ArrayList<Feedback>fidjibak;
+	private ArrayList<Feedback>feedback;
 	private ArrayList<ParagensRota>Paragens;
 	private String numRota;
 	private String inicio;
@@ -13,7 +13,7 @@ public class RotasAdminA {
 	
 	public RotasAdminA(String numRota, String inicio, String fim) {
 		Paragens = new ArrayList<ParagensRota>();
-		fidjibak = new ArrayList<Feedback>();
+		feedback = new ArrayList<Feedback>();
 		this.numRota = numRota;
 		this.inicio = inicio;
 		this.fim = fim;

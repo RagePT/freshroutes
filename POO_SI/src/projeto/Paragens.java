@@ -8,12 +8,14 @@ public class Paragens {
 	private String NomeStop;
 	private String Zona;
 	private ArrayList<ParagensRota>Paragens;
+	private ArrayList<Feedback>feedback;
 
 	public Paragens(String nomeRua, String nomeStop, String zona) {
 		NomeRua = nomeRua;
 		NomeStop = nomeStop;
 		Zona = zona;
 		Paragens = new ArrayList<ParagensRota>();
+		feedback = new ArrayList<Feedback>();
 	}
 
 	/**

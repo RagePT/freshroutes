@@ -6,14 +6,14 @@ public class User extends Admin{
 	private int idade;
 	private boolean deficiencia;
 	private ArrayList<RotasAdminA>rotasFav;
-	private ArrayList<Feedback>fidibaki;
+	private ArrayList<Feedback>feedback;
 	
 	public User(String username, String pass, int numTel, int idade, boolean deficiencia) {
 		super(username, pass, numTel);
 		this.idade = idade;
 		this.deficiencia = deficiencia;
 		rotasFav = new ArrayList<RotasAdminA>();
-		fidibaki = new ArrayList<Feedback>();
+		feedback = new ArrayList<Feedback>();
 	}
 
 	/**

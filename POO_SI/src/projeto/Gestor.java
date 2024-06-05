@@ -350,7 +350,7 @@ public class Gestor {
 					
 				} else { //UI User
 					do {
-						System.out.println("Previlegios: User\nDeseja:\n1. Pesquisar Rotas \n2. Criar uma Viagem\n3. Log Out");
+						System.out.println("Previlegios: User\nDeseja:\n1. Pesquisar Rotas \n2. Criar uma Viagem\n3. Dar Feedback\n4. Log Out");
 						resposta = sc.nextLine();
 						switch(resposta) {
 					
@@ -360,10 +360,70 @@ public class Gestor {
 						case "2":
 							//criar viagem
 							break;
+						case "3": // ADICIONAR FEEDBACK
+							if(!(Paragens.size() == 0) || !(Rotas.size() == 0)) {
+									int opii = 0;
+								do {
+									System.out.println("Quer dar feedback a uma:\n1. Paragem\n2. Rota\n3. Voltar");
+									String opxao = sc.nextLine();
+									if (!Checks.SeInteger(opxao)){
+										System.out.println("Insira um numero inteiro.");
+									} else {
+										opii = Integer.parseInt(resposta);
+										switch (opii) {
+											case 1:
+												if(Paragens.size() != 0) {
+												System.out.println("Qual é a paragem que quer associar o seu feedback");
+												for (int i = 0;i<Paragens.size();i++){
+													System.out.println(Paragens.get(i).toString());
+												}
+												int ipcao = 0;
+												do {
+													String zopcao = sc.nextLine();
+													if (!Checks.SeInteger(zopcao)) {
+														System.out.println("Insira um numero inteiro dentro do limite");
+													}else ipcao = Integer.parseInt(zopcao);
+												} while (ipcao < 0 && ipcao > Paragens.size());
+												//Paragens.get(ipcao)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+												
+											} else System.out.println("Não existem paragens criadas!");
+
+											break;
+											case 2:
+												
+												System.out.println("Qual é a Rota que quer associar ao seu feedback");
+
+											break;
+											default:
+											break;
+										}
+									}
+								}while(!(opii == 3));	
+
+
+							} else System.out.println("Não existe nada para dar feedback");
+							
+
+						break;
 						default:
-							break;
+						break;
 					}
-				}while(!(resposta.equals("3")));
+				}while(!(resposta.equals("4")));
 			}
 				
 				
