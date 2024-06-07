@@ -2,6 +2,7 @@ package projeto;
 
 public class Feedback {
 	
+	// Atributos da classe Feedback
       private Byte pontualidade;
       private Byte conforto;
       private Byte acessibilidade;
@@ -12,6 +13,7 @@ public class Feedback {
       private RotasAdminA rotaAssociada;
       private User userAssociado;
       
+   // Construtor da classe Feedback
      public Feedback(Byte pontualidade, Byte conforto, Byte acessibilidade, Byte limpeza, 
      		String comentarios, String sugestoesRotas, String livroReclamacoes){
     	
@@ -26,6 +28,7 @@ public class Feedback {
       }
  
 
+     //  Métodos getters e setters para acessar e modificar os atributos
 	public Byte getPontualiade() {
     	  return pontualidade;
       }
@@ -82,6 +85,7 @@ public class Feedback {
     	  return userAssociado;
       }
 
+      // Método toString para formatar a saída de informações do feedback
       @Override
 	public String toString() {   
     	  return ("**************Feedback**************\n "

@@ -2,10 +2,12 @@ package projeto;
 
 public class Admin {
 
+	// Atributos da classe Admin
 	private String username;
 	private String pass;
 	private int numTel;
 	
+	// construtor da classe Admin
 	public Admin(String username, String pass, int numTel) {
 		this.username = username;
 		this.pass = pass;

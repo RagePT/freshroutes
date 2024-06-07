@@ -6,9 +6,9 @@ public class GestorFeedback {
 	Scanner input = new Scanner(System.in);
 	ArrayList<Feedback>listaFeedback = new ArrayList<Feedback>();
 
-/*
- * Depois temos de realocar isto mas por um motivo de organização pos aqui por enquanto
-*/
+	/*
+     * Método para inserir feedback
+     */
 	public Feedback insereFeedback() {
 		String valida;
 		byte menu = 0;
@@ -21,6 +21,7 @@ public class GestorFeedback {
 			System.out.println("Pretende enviar algum feedback? (sim/nao)");
 			valida = input.nextLine();
 			
+			// Valida a entrada do usuário
 			while(valida.equalsIgnoreCase("sim") && valida.equalsIgnoreCase("nao") && valida.equalsIgnoreCase("não")) {
 			      System.out.println("---ERRO---Formato invalido escreva de novo (sim/nao)");
 			      valida = input.nextLine();
@@ -125,7 +126,9 @@ public class GestorFeedback {
 	}
 
 			
-	
+	 /*
+     * Método para retornar avaliacao da rota
+     */
 	public String FeedbackRota() {
 		
 		byte pontualidade = calculaPontualidade();
@@ -136,6 +139,9 @@ public class GestorFeedback {
 				"\nAcessibilidade: "+ acessibilidade+"\nLimpeza: "+limpeza;
 		
 	}
+	/*
+     * Métodos para calcular a avaliacao
+     */
 	 public byte calculaPontualidade() {
 	  	  double pontos = 0;
 	  	  int i = 0;
@@ -180,6 +186,9 @@ public class GestorFeedback {
 	  	  return res;
 	    }
 	    
+	    /*
+	     * Método para validar a entrada do usuário
+	     */
 	    public boolean validar(String variavel) {
 	    	if(variavel.equals("0") && variavel.equals("1") && variavel.equals("2") && variavel.equals("3") && variavel.equals("4") && variavel.equals("5")) {
 	    		return false;
