@@ -28,8 +28,12 @@ public class Main {
 			break;
 			case "3":
 			break;
+			case "4":
+				Gestor.dev();
+			break;
 			default:
 				System.out.println("Opção Inválida");
+			break;
 			}	
 		}while (!(resposta.equals("3")));
 	}

@@ -146,7 +146,6 @@ public class Gestor {
 	}
 /**
  * metodo login de user
- * @return estado do login
  */
 	public void Login() { 
 		System.out.println("Qual o username?"); 
@@ -256,7 +255,7 @@ public class Gestor {
 											} while(!(Checks.SeInteger(temptempo)));
 											System.out.println("Qual é a paragem que quer associar a rota? Existem as seguintes paragens:");
 											if (Paragens.size() != 0) {
-												for (int i = 0; i<Paragens.size();i++) {
+												for (int i = 0; i<Paragens.size();i++) {	
 													System.out.println(i+". "+Paragens.get(i).toString());
 												}
 												String temprotasel;
@@ -375,6 +374,25 @@ public class Gestor {
 						case "1":
 							//pesquisar rotas
 							System.out.println("Qual é o ponto de partida?");
+							String partida = sc.nextLine();
+							System.out.println("Qual é o ponto de chegada?");
+							String chegada = sc.nextLine();
+							boolean foundd = false;
+							for (int i = 0; i<(Rotas.size()-1); i++) {
+								if (Rotas.get(i).getInicio().equalsIgnoreCase(partida) && Rotas.get(i).getFim().equalsIgnoreCase(chegada)) {
+									System.out.println("Rota encontrada: "+ Rotas.get(i).getNumRota());
+									foundd = true;
+								} else if (Rotas.get(i).getInicio().equalsIgnoreCase(partida) || Rotas.get(i).getFim().equalsIgnoreCase(partida)) {
+										if ((Rotas.get(i+1).getFim().equalsIgnoreCase(chegada)) || Rotas.get(i+1).getInicio().equalsIgnoreCase(chegada)) { //funciona mas n ta 100% verificacoes xpto
+											System.out.println("Rotas encontradas: "+ Rotas.get(i+1).getNumRota() + " e "+ Rotas.get(i+1).getNumRota());
+											foundd = true;
+										}
+								}
+							}
+							if (!foundd) {
+								System.out.println("Não foi encontrada nenhuma rota com esses pontos.");
+							}
+
 							break;
 						case "2": // GUARDAR ROTA NOS FAVORITOS - COPILOT
 
@@ -515,4 +533,37 @@ public class Gestor {
 			}
 		}
 	}
+
+	public void dev() {
+		Admin adminuser = new Admin("admin", "admin", 123456789);
+		Users.add(adminuser);
+		Admin useruser = new User("user", "user", 987654321, 20, false);
+		Users.add(useruser);
+		RotasAdminA novarota = new RotasAdminA("1","A","B");
+		Rotas.add(novarota);
+		Paragens novaParagem = new Paragens("Rua 1", "Paragem 1", "Zona 1");
+		Paragens.add(novaParagem);
+		Feedback feedback = new Feedback((byte) 5, (byte) 5, (byte) 5, (byte) 5, "Comentário", "Sugestão", "Reclamação");
+		feedbacktodos.add(feedback);
+		novaParagem.addFeedback(feedback);
+		novarota.addFeedback(feedback);
+		useruser.addFeedback(feedback);
+		RotasAdminA novarota2 = new RotasAdminA("3","c","d");
+		Rotas.add(novarota2);
+		Paragens novaParagem2 = new Paragens("Rua 2", "Paragem 4", "Zona 7");
+		Paragens.add(novaParagem2);
+		RotasAdminA novarota3 = new RotasAdminA("4","d","e");
+		Rotas.add(novarota3);
+		Paragens novaParagem3 = new Paragens("Rua 7", "Paragem 53", "Zona 21");
+		Paragens.add(novaParagem3);
+		RotasAdminA novarota4 = new RotasAdminA("4","f","g");
+		Rotas.add(novarota4);
+		Paragens novaParagem4 = new Paragens("Rua 15", "Paragem 31", "Zona 71");
+		Paragens.add(novaParagem4);
+
+	}
+
+
+
+
 }

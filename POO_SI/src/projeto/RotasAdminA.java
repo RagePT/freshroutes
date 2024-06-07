@@ -28,6 +28,20 @@ public class RotasAdminA {
 	}
 
 	/**
+	 * @return the inicio
+	 */
+	public String getInicio() {
+		return inicio;
+	}
+
+	/**
+	 * @return the fim
+	 */
+	public String getFim() {
+		return fim;
+	}
+	
+	/**
 	 * @param o novo inicio
 	 */
 	public void setInicio(String novoinicio) {
